@@ -19,20 +19,20 @@ obj-m             += wl.o
 
 wl-objs           := src/linux_osl.o src/wl_linux.o src/wl_iw.o
 
-CFLAGS_MODULE     := -I$(M)/include
+EXTRA_CFLAGS      := -I$(M)/include
 
 ifeq ($(CONFIG_X86_64),y)
-  LDFLAGS_MODULE  := $(M)/bin/wlc_hybrid.x86_64.bin
+  EXTRA_LDFLAGS   := $(M)/bin/wlc_hybrid.x86_64.bin
 else
-  LDFLAGS_MODULE  := $(M)/bin/wlc_hybrid.x86_32.bin
+  EXTRA_LDFLAGS   := $(M)/bin/wlc_hybrid.x86_32.bin
 endif
 
 all:
-	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` modules
+	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` O=$(O) modules
 
 clean:
-	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` clean
+	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` O=$(O) clean
 
 install:
-	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` modules_install
+	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` O=$(O) modules_install
 
