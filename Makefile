@@ -28,11 +28,11 @@ else
 endif
 
 all:
-	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` O=$(O) modules
+	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` modules
 
 clean:
-	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` O=$(O) clean
+	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` clean
 
 install:
-	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` O=$(O) modules_install
+	KBUILD_NOPEDANTIC=1 make -C $(LINUXDIR) M=`pwd` modules_install
 
