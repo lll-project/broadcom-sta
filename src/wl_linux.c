@@ -801,12 +801,12 @@ wl_remove(struct pci_dev *pdev)
 }
 
 static struct pci_driver wl_pci_driver = {
-  name:    "wl",
-  probe:    wl_pci_probe,
-  suspend:  wl_suspend,
-  resume:    wl_resume,
-  remove:    __devexit_p(wl_remove),
-  id_table:  wl_id_table,
+  .name =     "wl",
+  .probe =     wl_pci_probe,
+  .suspend =   wl_suspend,
+  .resume =     wl_resume,
+  .remove =     __devexit_p(wl_remove),
+  .id_table =   wl_id_table,
   };
 
 #define  wl_read_nvram_file() do {} while (0)

@@ -2303,7 +2303,7 @@ const struct iw_handler_def wl_iw_handler_def =
   .private = wl_iw_priv_handler,
   .private_args = wl_iw_priv_args,
 #if WIRELESS_EXT >= 19
-  get_wireless_stats: wl_get_wireless_stats,
+  .get_wireless_stats =  wl_get_wireless_stats,
 #endif 
   };
 #endif 
