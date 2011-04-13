@@ -17,7 +17,9 @@ endif
 
 obj-m             += wl.o
 
-wl-objs           := src/linux_osl.o src/wl_linux.o src/wl_iw.o
+wl-objs           := src/linux_osl.o \
+                     src/wl_linux.o  \
+                     src/wl_iw.o
 
 EXTRA_CFLAGS      := -I$(M)/include
 
